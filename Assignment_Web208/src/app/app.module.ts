@@ -10,6 +10,10 @@ import { ProductComponent } from './page/admin/product/product.component';
 import { AddProductComponent } from './page/admin/add-product/add-product.component';
 import { EditProductComponent } from './page/admin/edit-product/edit-product.component';
 import { DeleteProductComponent } from './page/admin/delete-product/delete-product.component';
+import { HttpClientModule} from '@angular/common/http';
+import { SearchBoxPipe } from './search-box.pipe';
+import { HeaderPageComponent } from './component/header-page/header-page.component';
+import { FooterPageComponent } from './component/footer-page/footer-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,10 +24,14 @@ import { DeleteProductComponent } from './page/admin/delete-product/delete-produ
     AddProductComponent,
     EditProductComponent,
     DeleteProductComponent,
+    SearchBoxPipe,
+    HeaderPageComponent,
+    FooterPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
