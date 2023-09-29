@@ -12,8 +12,8 @@ import { EditProductComponent } from './page/admin/edit-product/edit-product.com
 import { DeleteProductComponent } from './page/admin/delete-product/delete-product.component';
 import { HttpClientModule} from '@angular/common/http';
 import { SearchBoxPipe } from './search-box.pipe';
-import { HeaderPageComponent } from './component/header-page/header-page.component';
-import { FooterPageComponent } from './component/footer-page/footer-page.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +25,8 @@ import { FooterPageComponent } from './component/footer-page/footer-page.compone
     EditProductComponent,
     DeleteProductComponent,
     SearchBoxPipe,
-    HeaderPageComponent,
-    FooterPageComponent,
+    AdminLayoutComponent,
+    BaseLayoutComponent,
   ],
   imports: [
     BrowserModule,

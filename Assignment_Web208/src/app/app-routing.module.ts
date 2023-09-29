@@ -6,14 +6,31 @@ import { ProductDetailComponent } from './page/product-detail/product-detail.com
 import { ProductComponent } from './page/admin/product/product.component';
 import { AddProductComponent } from './page/admin/add-product/add-product.component';
 import { EditProductComponent } from './page/admin/edit-product/edit-product.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { DashboardComponent } from './page/admin/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path : "" , component : HomepageComponent},
-  {path : "product" , component : ProductPageComponent},
-  {path : "product-detail/:id" , component : ProductDetailComponent},
-  {path : "admin/product" , component : ProductComponent},
-  {path : "admin/add-product" , component : AddProductComponent},
-  {path : "admin/edit-product" , component : EditProductComponent},
+  // Base router
+  {
+    path: "", component: HomepageComponent, children: [
+      { path: "product", component: ProductPageComponent },
+      { path: "product-detailt/id", component: ProductDetailComponent }
+    ]
+  },
+  // Admin router
+  {
+    path: "admin", component: AdminLayoutComponent, children: [
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "dashboard", component: DashboardComponent },
+      {
+        path: "product", component: ProductComponent, children: [
+          { path: "product-add", component: AddProductComponent },
+          { path: "product-edit" , component : EditProductComponent }
+        ]
+      },
+
+    ]
+  }
 ];
 
 @NgModule({
