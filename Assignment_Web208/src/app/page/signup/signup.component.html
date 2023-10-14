@@ -1,0 +1,25 @@
+<form action="" [formGroup]="formSignup">
+  <div>
+    <label for=""> Name </label>
+    <input type="email" formControlName="email" placeholder="Name">
+  </div><div>
+    <label for=""> Email</label>
+    <input type="email" formControlName="email" placeholder="Email">
+    <div *ngIf="formSignup.get('email')?.hasError('required') && (formSignup.get('email')?.touched || formSignup.get('email')?.touched )">
+      bat buoc
+    </div>
+  </div><div>
+    <label for=""> Password</label>
+    <input type="password" formControlName="password" placeholder="Password">
+    <div class="text-red-300" *ngIf="formSignup.get('password')?.hasError('required') && (formSignup.get('password')?.touched || formSignup.get('password')?.touched )">
+      bat buoc
+    </div>
+  </div>
+  <div>
+    <label for=""> Confirm Password</label>
+    <input type="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
+    <div *ngIf="formSignup.get('confirmPassword')?.hasError('required') && (formSignup.get('confirmPassword')?.touched || formSignup.get('confirmPassword')?.touched )">
+      bat buoc
+    </div>
+  </div>
+</form>

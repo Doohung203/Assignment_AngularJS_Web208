@@ -10,21 +10,15 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductPageComponent {
   products: IProduct[] = []
-  constructor(
-    private productsService: ProductService,
-    private router : Router
-    ) {
-    this.productsService.getAll().subscribe({
-      next: (data) => { this.products = data },
+  constructor(private productService: ProductService, private router: Router) {
+    this.productService.getAll().subscribe({
+      next: (data: any) => {
+        this.products = data.data
+      },
       error: (error) => { console.log("error", error.message); },
       complete: () => { console.log("GetAll Data success"); }
     })
   }
-  onShowDetail(id : number){
-    console.log(id)
-  }
-  onClick(id : number){
-    this.router.navigate(['/product-detail', id])
-  }
+
 
 }

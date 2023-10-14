@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "name": "Sản phẩm 1",
+      "price": 1000,
+      "imageUrl": "https://picsum.photos/200/300",
+      "code": "HGJ",
+      "id": 1
+    },
+    {
+      "name": "Sản Phẩm 2",
+      "price": 2000,
+      "imageUrl": "https://picsum.photos/200/300",
+      "code": "JSH",
+      "id": 2
+    },
+    {
+      "name": "Sản phẩm3",
+      "price": 3000,
+      "imageUrl": "https://picsum.photos/200/300",
+      "code": "KLO",
+      "id": 3
+    },
+    {
+      "name": "Sản Phẩm 4",
+      "price": 4000,
+      "imageUrl": "https://picsum.photos/200/300",
+      "code": "GTU",
+      "id": 4
+    }
+  ]
+}
