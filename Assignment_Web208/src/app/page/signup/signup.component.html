@@ -1,35 +1,58 @@
-<form action="" [formGroup]="formSignup" class="form">
-  <div>
-    <label for=""> Name </label>
-    <input type="email" formControlName="email" placeholder="Name">
-  </div><div>
-    <label for=""> Email</label>
-    <input type="email" formControlName="email" placeholder="Email">
-    <div *ngIf="formSignup.get('email')?.hasError('required') && (formSignup.get('email')?.touched || formSignup.get('email')?.touched )">
-      Bắt buộc nhập email
-    </div>
-    <div class="text-red-500" *ngIf="formSignup.get('email')?.hasError('email') && (formSignup.get('email')?.touched || formSignup.get('email')?.touched )">
-      Nhập đúng định dạng email
-    </div>
-  </div><div>
-    <label for=""> Password</label>
-    <input type="password" formControlName="password" placeholder="Password">
-    <div class="text-red-500" *ngIf="formSignup.get('password')?.hasError('required') && (formSignup.get('password')?.touched || formSignup.get('password')?.touched )">
-      Bắt buộc nhập mật khẩu
-    </div>
-    <div class="text-red-500" *ngIf="formSignup.get('password')?.hasError('minlength') && (formSignup.get('password')?.touched || formSignup.get('password')?.touched )">
-      Mật khẩu tối thiểu 6 ký tự
+
+<form class="mx-1 mx-md-4" [formGroup]="formSignup" >
+  <div class="d-flex align-items-center mb-3 pb-1">
+    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+    <span class="h1 fw-bold mb-0">Logo</span>
+  </div>
+  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register your account</h5>
+  <div class="form-outline mb-4">
+    <input type="email" id="form2Example17" class="form-control form-control-lg" formControlName="name"/>
+    <label class="form-label" for="form2Example17">Name</label>
+  </div>
+
+  <div class="form-outline mb-4 ">
+    <input type="email" id="form2Example17" class="form-control form-control-lg" formControlName="email"/>
+    <div class="flex justify-between">
+      <label class="form-label" for="form2Example17">Email address</label>
+      <div class="text-red-500" *ngIf="formSignup.get('email')?.hasError('required') && (formSignup.get('email')?.touched || formSignup.get('email')?.touched )">
+        Bắt buộc nhập email
+      </div>
+      <div class="text-red-500" *ngIf="formSignup.get('email')?.hasError('email') && (formSignup.get('email')?.touched || formSignup.get('email')?.touched )">
+        Nhập đúng định dạng email
+      </div>
     </div>
   </div>
-  <div>
-    <label for=""> Confirm Password</label>
-    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password">
-    <div  class="text-red-500" *ngIf="formSignup.get('confirmPassword')?.hasError('required') && (formSignup.get('confirmPassword')?.touched || formSignup.get('confirmPassword')?.touched )">
-      Bắt buộc nhập xác nhận mật khẩu
-    </div>
-    <div  class="text-red-500" *ngIf="formSignup.hasError('notSame') && (formSignup.get('confirmPassword')?.touched || formSignup.get('confirmPassword')?.touched )">
-      Mật khẩu không giống nhau
+
+
+  <div class="form-outline mb-4">
+    <input type="password" id="form2Example27" class="form-control form-control-lg" formControlName="password"/>
+    <div class="flex justify-between">
+      <label class="form-label" for="form2Example27">Password</label>
+      <div class="text-red-500" *ngIf="formSignup.get('password')?.hasError('required') && (formSignup.get('password')?.touched || formSignup.get('password')?.touched )">
+        Bắt buộc nhập mật khẩu
+      </div>
+      <div class="text-red-500" *ngIf="formSignup.get('password')?.hasError('minlength') && (formSignup.get('password')?.touched || formSignup.get('password')?.touched )">
+        Mật khẩu tối thiểu 6 ký tự
+      </div>
     </div>
   </div>
-  <button  type="submit" class="btn btn-primary" >Đăng ký</button>
+
+  <div class="form-outline mb-4">
+    <input type="password" id="form2Example27" class="form-control form-control-lg" formControlName="confirmPassword"/>
+    <div class="flex justify-between">
+      <label class="form-label" for="form2Example27">Confirm Password</label>
+      <div  class="text-red-500" *ngIf="formSignup.get('confirmPassword')?.hasError('required') && (formSignup.get('confirmPassword')?.touched || formSignup.get('confirmPassword')?.touched )">
+        Bắt buộc nhập xác nhận mật khẩu
+      </div>
+      <div  class="text-red-500" *ngIf="formSignup.hasError('notSame') && (formSignup.get('confirmPassword')?.touched || formSignup.get('confirmPassword')?.touched )">
+        Mật khẩu không giống nhau
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-1 mb-4">
+    <button class="btn btn-dark btn-lg btn-block" type="button">Register</button>
+  </div>
+  <p class="mb-5 pb-lg-2" style="color: #393f81;">Already Account?
+  <a routerLink="signin"style="color: #393f81;">Singin here</a></p>
 </form>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, signal } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './page/homepage/homepage.component';
 import { ProductPageComponent } from './page/product-page/product-page.component';
@@ -10,6 +10,7 @@ import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component
 import { FormAddUpdateComponent } from './page/admin/form-add-update/form-add-update.component';
 import { SignupComponent } from './page/signup/signup.component';
 import { SigninComponent } from './page/signin/signin.component';
+import { LoginRegisterComponent } from './layouts/login-register/login-register.component';
 
 const routes: Routes = [
   // Base router
@@ -21,7 +22,11 @@ const routes: Routes = [
       { path: "product-detail/:_id", component: ProductDetailComponent },
     ]
   },
-    
+    {path: "login", component : LoginRegisterComponent, children : [
+      {path : "", redirectTo : "singin" , pathMatch : "full"},
+      {path :  "signin" , component : SigninComponent},
+      {path :  "signup" , component : SignupComponent},
+    ] },
   // Admin router
   {
     path: "admin", component: AdminLayoutComponent, children: [

@@ -1,33 +1,42 @@
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" >
-      <div>
-        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-        <div class="mt-2">
-          <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter the email address" required class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 hover:bg-red-100 ">
-        </div>
-      </div>
-
-      <div>
-        <div class="flex items-center justify-between">
-          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-          <div class="text-sm">
-            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-          </div>
-        </div>
-        <div class="mt-2">
-          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter the password" required class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6  hover:bg-red-100">
-        </div>
-      </div>
-
-      <div>
-        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-      </div>
-    </form>
-
-    <p class="mt-10 text-center text-sm text-gray-500">
-      Bạn chưa có tài khoản?
-      <a href="signup" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Đăng ký</a>
-    </p>
+<form [formGroup]="formSignIn">
+  <div class="d-flex align-items-center mb-3 pb-1">
+    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+    <span class="h1 fw-bold mb-0">Logo</span>
   </div>
-</div>
+
+  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+  <div class="form-outline mb-4">
+    <input type="email" id="form2Example17" class="form-control form-control-lg" formControlName="email"/>
+    <div class="flex justify-between">
+      <label class="form-label" for="form2Example17">Email address</label>
+      <div class="text-red-500" *ngIf="formSignIn.get('email')?.hasError('required') && (formSignIn.get('email')?.touched || formSignIn.get('email')?.touched )">
+        Bắt buộc nhập email
+      </div>
+      <div class="text-red-500" *ngIf="formSignIn.get('email')?.hasError('email') && (formSignIn.get('email')?.touched || formSignIn.get('email')?.touched )">
+        Nhập đúng định dạng email
+      </div>
+    </div>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input type="password" id="form2Example27" class="form-control form-control-lg" formControlName="password"/>
+    <div class="flex justify-between">
+      <label class="form-label" for="form2Example17">Password</label>
+      <div class="text-red-500" *ngIf="formSignIn.get('password')?.hasError('required') && (formSignIn.get('password')?.touched || formSignIn.get('password')?.touched )">
+        Bắt buộc nhập password
+      </div>
+      <div class="text-red-500" *ngIf="formSignIn.get('password')?.hasError('minlength') && (formSignIn.get('password')?.touched || formSignIn.get('password')?.touched )">
+        Mật khẩu tối thiểu 6 ký tự
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-1 mb-4">
+    <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+  </div>
+
+  <a class="small text-muted" href="#!">Forgot password?</a>
+  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? 
+  <a href="#!"style="color: #393f81;">Register here</a></p>
+</form>
