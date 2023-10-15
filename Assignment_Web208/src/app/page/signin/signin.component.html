@@ -1,27 +1,33 @@
-<form action="" >
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
-  <main class="form-signin w-100 m-auto">
-    <form>
-      <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Name</label>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" >
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+        <div class="mt-2">
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter the email address" required class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 hover:bg-red-100 ">
+        </div>
       </div>
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+          <div class="text-sm">
+            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+          </div>
+        </div>
+        <div class="mt-2">
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter the password" required class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6  hover:bg-red-100">
+        </div>
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
+
+      <div>
+        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Confirm Password</label>
-      </div>
-      <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
     </form>
-  </main>
-</body>
-</form>
+
+    <p class="mt-10 text-center text-sm text-gray-500">
+      Bạn chưa có tài khoản?
+      <a href="signup" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Đăng ký</a>
+    </p>
+  </div>
+</div>

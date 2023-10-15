@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './page/signup/signup.component';
 import { SigninComponent } from './page/signin/signin.component';
+import { LoginRegisterComponent } from './layouts/login-register/login-register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { SigninComponent } from './page/signin/signin.component';
     FooterComponent,
     SignupComponent,
     SigninComponent,
+    LoginRegisterComponent,
   ],
   imports: [
     BrowserModule,

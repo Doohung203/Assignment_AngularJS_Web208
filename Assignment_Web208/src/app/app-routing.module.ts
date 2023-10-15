@@ -19,11 +19,9 @@ const routes: Routes = [
       { path: "home", component: HomepageComponent },
       { path: "product", component: ProductPageComponent },
       { path: "product-detail/:_id", component: ProductDetailComponent },
-      {path : "signin" , component : SigninComponent},
-      {path : "signup" , component : SignupComponent}
-
     ]
   },
+    
   // Admin router
   {
     path: "admin", component: AdminLayoutComponent, children: [

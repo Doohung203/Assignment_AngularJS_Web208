@@ -7,5 +7,9 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-
+  formSignIn = this.formBuider.group({
+    email : ["", [Validators.required, Validators.email]],
+    password : ["",[Validators.required, Validators.minLength(6)]]
+  })
+  constructor(private formBuider: FormBuilder){}
 }
