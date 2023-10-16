@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'interfaces/product';
 import { ProductService } from 'src/app/service/product.service';
 import { lastValueFrom } from "rxjs"
+import { compileNgModule } from '@angular/compiler';
 
 @Component({
   selector: 'app-form-add-update',
@@ -15,7 +16,7 @@ export class FormAddUpdateComponent {
     name: ["", [Validators.required, Validators.minLength(4)]],
     price: [0],
     imgUrl: [""],
-    code: [""]
+    description: [""]
   })
   product!: IProduct;
   mode: "create" | "update" = "create"
@@ -26,21 +27,38 @@ export class FormAddUpdateComponent {
     private routers: Router,
   ) { }
 
+  // async ngOnInit() {
+  //   const { _id } = this.router.snapshot.params;
+  //   if (_id) {
+  //     this.mode = "update";
+  //     await this.productService.getProductById(_id).subscribe({
+  //         next : ({data} : any) => {this.product = data },
+  //         error : (error) => {console.log(error)},
+  //         complete : () => {console.log(this.product)}
+  //       })
+  //       this.productForm.patchValue(this.product as any)
+  //   }
+  // } 
   async ngOnInit() {
-    const { id } = this.router.snapshot.params;
-    if (id) {
+    const { _id } = this.router.snapshot.params;
+    console.log(_id);
+    if (_id) {
       this.mode = "update";
       try {
-        this.product = await lastValueFrom(this.productService.getProductById(id))
-        this.productForm.patchValue(this.product as any);
+        await this.productService.getProductById(_id).subscribe({
+          next : ({data} : any) => {this.product = data },
+          error : (error) => {console.log(error)},
+          complete : () => {this.productForm.patchValue(this.product as any)}
+        })
+        
       } catch (error: any) {
         console.log(error.message);
       }
     }
   }
 
+
   async onHandleSubmit() {
-    // if(this.productForm.valid) return;
     if (this.mode === "create") {
       try {
         await lastValueFrom(this.productService.addProduct(this.productForm.value as IProduct))
