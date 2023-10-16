@@ -13,10 +13,10 @@ import { compileNgModule } from '@angular/compiler';
 })
 export class FormAddUpdateComponent {
   productForm = this.formBuider.group({
-    name: ["", [Validators.required, Validators.minLength(4)]],
-    price: [0],
-    imgUrl: [""],
-    description: [""]
+    name: ["", [Validators.required, Validators.minLength(5),Validators.maxLength(50)]],
+    price: ["", [Validators.required,Validators.min(0)]],
+    description: ["",Validators.required , Validators.minLength(25) , Validators.maxLength(255)],
+    imgUrl: ["",[Validators.required]],
   })
   product!: IProduct;
   mode: "create" | "update" = "create"
@@ -26,22 +26,8 @@ export class FormAddUpdateComponent {
     private router: ActivatedRoute,
     private routers: Router,
   ) { }
-
-  // async ngOnInit() {
-  //   const { _id } = this.router.snapshot.params;
-  //   if (_id) {
-  //     this.mode = "update";
-  //     await this.productService.getProductById(_id).subscribe({
-  //         next : ({data} : any) => {this.product = data },
-  //         error : (error) => {console.log(error)},
-  //         complete : () => {console.log(this.product)}
-  //       })
-  //       this.productForm.patchValue(this.product as any)
-  //   }
-  // } 
   async ngOnInit() {
     const { _id } = this.router.snapshot.params;
-    console.log(_id);
     if (_id) {
       this.mode = "update";
       try {

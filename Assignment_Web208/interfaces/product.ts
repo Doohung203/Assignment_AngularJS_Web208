@@ -3,7 +3,7 @@ export interface IProduct {
   name: string,
   price: number | string,
   imgUrl :string,
-  description :string,
-  createdAt : string,
-  updatedAt : string
+  description? :string,
+  createdAt? : string,
+  updatedAt? : string
 }

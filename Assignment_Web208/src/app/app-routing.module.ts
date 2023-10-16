@@ -20,13 +20,16 @@ const routes: Routes = [
       { path: "home", component: HomepageComponent },
       { path: "product", component: ProductPageComponent },
       { path: "product-detail/:_id", component: ProductDetailComponent },
+      {
+        path: "login", component: LoginRegisterComponent, children: [
+          { path: "", redirectTo: "singin", pathMatch: "full" },
+          { path: "signin", component: SigninComponent },
+          { path: "signup", component: SignupComponent },
+        ]
+      },
     ]
   },
-    {path: "login", component : LoginRegisterComponent, children : [
-      {path : "", redirectTo : "singin" , pathMatch : "full"},
-      {path :  "signin" , component : SigninComponent},
-      {path :  "signup" , component : SignupComponent},
-    ] },
+  
   // Admin router
   {
     path: "admin", component: AdminLayoutComponent, children: [

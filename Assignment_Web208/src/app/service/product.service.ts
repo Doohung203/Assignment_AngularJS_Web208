@@ -11,9 +11,6 @@ export class ProductService {
   // API_URL = `http://localhost:3000/products`
   constructor(private http : HttpClient) { }
 
-  get(endpoint: string) {
-    return this.http.get(`${this.API_URL}/${endpoint}`);
-  }
   getProductById( _id : number | string) : Observable<IProduct>{
     return this.http.get<IProduct>(`${this.API_URL}/${_id}`)
   }
